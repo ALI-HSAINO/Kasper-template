@@ -2,6 +2,10 @@
 :root {
   --margin-main: 100px 0px;
   --padding-text: 20px;
+  --main-color: #1f2021;
+  --second-color: #19c8fa;
+  --trans-color: rgba(25, 200, 250, 50%);
+  --third-color: #cecece;
 }
 /* End variables */
 /* Start componants */
@@ -59,6 +63,105 @@
 }
 /* End componants */
 /* Strat sharing styles */
+/* start text color */
+header nav .nav,
+header nav ul li a,
+header nav .form i,
+.landing .text .text-content h2,
+.landing .text .text-content p,
+.landing .fas,
+.services .container .srvss .srv i,
+.services .text-content h2,
+.services .text-content p,
+.portfolio .container .buttons button,
+.portfolio .boxs .box .text,
+.portfolio .container-b button,
+.video .text-container h2,
+.video .text-container p,
+.video .text-container button,
+.status .text-container .text i,
+.status .text-container .text h3,
+.status .text-container .text p,
+.skills,
+.skills-landing .container .text,
+.pricing,
+.pricing .container .prcs ul li button,
+.pricing .container .text button:hover,
+.subscribe,
+.subscribe .container form input::placeholder,
+.subscribe .container form button:hover,
+.contact-us .content form button:hover,
+.contact-us .content .text {
+  color: white;
+}
+.portfolio .container .buttons button:hover,
+.portfolio .container .buttons .active-b,
+.portfolio .container-b button:hover,
+.pricing .container .prcs ul li button:hover,
+.pricing .container .text button,
+.contact-us .content form button,
+.portfolio .boxs .box .text h4,
+.footer {
+  color: var(--main-color);
+}
+header nav ul li a.active,
+header nav ul li a:hover,
+header nav .form i:hover,
+.services .container .srvss .srv h3,
+.portfolio .boxs .box .text p,
+.skills .container .testimonaials .content .content-info p span,
+.skills .container .our-skills .progs .prog div span::before,
+.skills-landing .container .text p:last-child,
+.subscribe .container form input[type="email"],
+.subscribe .container form i,
+.contact-us .content form input[TYPE="text"],
+.contact-us .content form input[TYPE="email"],
+.contact-us .content form textarea,
+.footer .container p span,
+.fa-arrow-circle-up:hover {
+  color: var(--second-color);
+}
+.services .container .srvss .srv p,
+.skills .container > div .text p {
+  color: var(--third-color);
+}
+.landing .fas:hover,
+.video .text-container button:hover,
+.fa-arrow-circle-up {
+  color: var(--trans-color);
+}
+/* end text color */
+/* strat background-color */
+header .container::before,
+.video .text-container button,
+.status .text-container .text i,
+header .container::before,
+.contact-us .content form button:hover,
+.footer .container p:nth-child(2)::before {
+  background-color: var(--main-color);
+}
+.portfolio .container .buttons button:hover,
+.portfolio .container .buttons .active-b,
+.portfolio .container-b button:hover,
+.pricing
+  .container
+  .prcs
+  ul
+  li:not(:first-child, :last-child, :nth-child(5))::before,
+.pricing .container .prcs ul li button:hover,
+.pricing .container .text button,
+.subscribe .container form button,
+.contact-us .content form button,
+.skills .container .our-skills .progs .prog div span {
+  background-color: var(--second-color);
+}
+.status .text-container,
+.video .text-container,
+.services .text,
+.landing .text {
+  background-color: var(--trans-color);
+}
+/* End background-color */
 .landing .landing-filtter,
 .services .landing-srv::before,
 .portfolio .boxs .box::before,
