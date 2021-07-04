@@ -610,6 +610,11 @@ header nav .nav:hover + ul {
     height: 90%;
   }
 }
+@media (max-width:768px) {
+  .video{
+    display: none;
+  }
+}
 /* End video */
 /* Start about */
 .about .image {
