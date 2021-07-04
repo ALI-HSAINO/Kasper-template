@@ -1,13 +1,13 @@
 /* Start variables */
-/* :root{
+:root{
     --main-color: #1f2021;
     --second-color: #19c8fa;
     --trans-color: rgba(25, 200, 250, 50%);
     --third-color: #cecece;
-} */
+}
 /* End variables */
 /* start text color */
-/* header nav .nav,
+header nav .nav,
 header nav ul li a,
 header nav .form i,
 .landing .text .text-content h2,
@@ -72,10 +72,10 @@ header nav .form i:hover,
 .video .text-container button:hover,
 .fa-arrow-circle-up {
   color: var(--trans-color);
-} */
+}
 /* end text color */
 /* strat background-color */
-/* header .container::before,
+header .container::before,
 .video .text-container button,
 .status .text-container .text i,
 header .container::before,
@@ -103,5 +103,5 @@ header .container::before,
 .services .text,
 .landing .text {
   background-color: var(--trans-color);
-} */
+}
 /* End background-color */
