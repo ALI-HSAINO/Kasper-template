@@ -1,9 +1,5 @@
 /* Start variables */
 :root {
-  --main-color: #1f2021;
-  --second-color: #19c8fa;
-  --trans-color: rgba(25, 200, 250, 50%);
-  --third-color: #cecece;
   --margin-main: 100px 0px;
   --padding-text: 20px;
 }
@@ -62,6 +58,23 @@
   color: var(--third-color);
 }
 /* End componants */
+/* Strat sharing styles */
+.landing .landing-filtter,
+.services .landing-srv::before,
+.portfolio .boxs .box::before,
+.video::before,
+.status::before,
+.skills-landing::before,
+.subscribe::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 60%);
+}
+/* End sharing styles */
 /* Start global rules  */
 * {
   -webkit-box-sizing: border-box;
@@ -119,7 +132,6 @@ header .container::before {
   content: "";
   width: calc(100% - 30px);
   height: 1px;
-  background-color: #636364;
   bottom: 0;
   left: 15px;
   position: absolute;
@@ -140,7 +152,6 @@ header nav {
   position: relative;
 }
 header nav .nav {
-  color: white;
   font-size: 20px;
   position: absolute;
   right: 60px;
@@ -156,7 +167,6 @@ header nav ul li {
 }
 header nav ul li a {
   text-decoration: none;
-  color: white;
   font-weight: 600;
   outline: none;
   padding-bottom: 24.4px;
@@ -166,18 +176,13 @@ header nav ul li a {
 }
 header nav ul li a.active,
 header nav ul li a:hover {
-  color: var(--second-color);
   border-bottom: solid var(--second-color) 1px;
 }
 header nav .form i {
-  color: white;
   font-size: 15px;
   border-left: solid white 2px;
   padding-left: 10px;
   transition: 0.3s;
-}
-header nav .form i:hover {
-  color: var(--second-color);
 }
 /* For 767px (mobile) */
 @media (max-width: 824px) {
@@ -232,14 +237,6 @@ header nav .nav:hover + ul {
   background-size: cover;
   position: relative;
 }
-.landing .landing-filtter {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 60%);
-}
 .landing .text {
   position: absolute;
   width: 50%;
@@ -248,24 +245,12 @@ header nav .nav:hover + ul {
   transform: translateY(-50%);
   padding: 20px;
   padding-left: 40px;
-  background-color: var(--trans-color);
   display: flex;
   justify-content: flex-end;
   border-radius: 0px 10px 10px 0px;
 }
 .landing .text .text-content {
   width: 400px;
-}
-.landing .text .text-content h2 {
-  color: white;
-  font-size: 20px;
-  font-weight: normal;
-  line-height: 2;
-  margin-bottom: 10px;
-}
-.landing .text .text-content p {
-  color: white;
-  line-height: 1.5;
 }
 @media (max-width: 768px) {
   .landing .text {
@@ -277,11 +262,20 @@ header nav .nav:hover + ul {
     text-align: center;
   }
 }
+.landing .text .text-content h2 {
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 2;
+  margin-bottom: 10px;
+}
+.landing .text .text-content p {
+  line-height: 1.5;
+}
+
 .landing .fas {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: white;
   transition: 0.3s;
   font-size: 20px;
 }
@@ -290,9 +284,6 @@ header nav .nav:hover + ul {
 }
 .landing .right {
   right: 15px;
-}
-.landing .fas:hover {
-  color: var(--trans-color);
 }
 .landing ul {
   position: absolute;
@@ -315,12 +306,24 @@ header nav .nav:hover + ul {
 .services {
   margin: var(--margin-main);
 }
+@media (min-width: 768px) {
+  .services .container .srvss {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    column-gap: 40px;
+  }
+}
 .services .container .srvss .srv {
   margin-bottom: 50px;
   display: flex;
 }
+@media (max-width: 768px) {
+  .services .container .srvss .srv {
+    flex-direction: column;
+    text-align: center;
+  }
+}
 .services .container .srvss .srv i {
-  color: white;
   font-weight: 600;
 }
 @media (max-width: 768px) {
@@ -331,35 +334,15 @@ header nav .nav:hover + ul {
 .services .container .srvss .srv .srv-text {
   margin-left: 20px;
 }
+.services .container .srvss .srv p{
+  line-height: 1.8;
+}
 .services .container .srvss .srv h3 {
-  color: var(--second-color);
   font-weight: normal;
 }
 @media (max-width: 768px) {
   .services .container .srvss .srv h3 {
     margin-bottom: 20px;
-  }
-}
-.services .container .srvss .srv p {
-  line-height: 1.8;
-  color: var(--third-color);
-}
-@media (max-width: 768px) {
-  .services .container .srvss .srv {
-    display: inline-block;
-    text-align: center;
-  }
-  .services .container .srvss .srv {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-}
-@media (min-width: 768px) {
-  .services .container .srvss {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-    column-gap: 40px;
   }
 }
 .services .landing-srv {
@@ -371,15 +354,6 @@ header nav .nav:hover + ul {
   position: relative;
   z-index: -1;
 }
-.services .landing-srv::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 60%);
-}
 .services .text {
   width: 50%;
   position: absolute;
@@ -387,14 +361,12 @@ header nav .nav:hover + ul {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  background-color: var(--trans-color);
   display: flex;
   justify-content: flex-start;
   padding-left: 40px;
   border-radius: 10px 0px 0px 10px;
 }
 .services .text-content h2 {
-  color: white;
   font-size: 20px;
   font-weight: normal;
   margin-bottom: 20px;
@@ -403,7 +375,6 @@ header nav .nav:hover + ul {
   margin-right: 20px;
 }
 .services .text-content p {
-  color: white;
   line-height: 2.5;
 }
 @media (max-width: 768px) {
@@ -438,20 +409,10 @@ header nav .nav:hover + ul {
   padding: 10px;
   transition: 0.3s;
   border-radius: 10px;
-  color: white;
   border: solid var(--second-color) 1px;
-}
-.portfolio .container .buttons button:hover {
-  background-color: var(--second-color);
-  color: black;
-}
-.portfolio .container .buttons .active-b {
-  background-color: var(--second-color);
-  color: black;
 }
 @media (max-width: 768px) {
   .portfolio .container .buttons {
-    display: flex;
     flex-direction: column;
     width: 100%;
   }
@@ -474,14 +435,18 @@ header nav .nav:hover + ul {
   border-bottom: solid var(--trans-color) 4px;
   margin-bottom: -1px;
 }
-.portfolio .boxs .box::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 99%;
-  background-color: rgba(0, 0, 0, 60%);
+/* @media (max-width: 1200px) {
+  .portfolio .boxs .box {
+    flex-basis: 50%;
+  }
+} */
+@media (max-width: 768px) {
+  .portfolio .boxs .box {
+    flex-basis: 100%;
+  }
+  .portfolio .boxs .box:hover img {
+    transform: rotate(3deg) scale(1.2);
+  }
 }
 .portfolio .boxs .box:hover .text {
   position: absolute;
@@ -511,22 +476,6 @@ header nav .nav:hover + ul {
   font-weight: normal;
   font-size: 20px;
 }
-.portfolio .boxs .box .text p {
-  color: var(--second-color);
-}
-@media (max-width: 1200px) {
-  .portfolio .boxs .box {
-    flex-basis: 50%;
-  }
-}
-@media (max-width: 768px) {
-  .portfolio .boxs .box {
-    flex-basis: 100%;
-  }
-  .portfolio .boxs .box:hover img {
-    transform: rotate(3deg) scale(1.2);
-  }
-}
 .portfolio .container-b {
   display: flex;
   justify-content: center;
@@ -539,11 +488,6 @@ header nav .nav:hover + ul {
   transition: 0.3s;
   border-radius: 10px;
   margin-top: 20px;
-  color: white;
-}
-.portfolio .container-b button:hover {
-  background-color: var(--second-color);
-  color: black;
 }
 /* End portfolio */
 /* Start video */
@@ -551,67 +495,37 @@ header nav .nav:hover + ul {
   margin: var(--margin-main);
   position: relative;
 }
-.video::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 99.5%;
-  background-color: rgba(0, 0, 0, 60%);
-}
 .video video {
   width: 100%;
-  /* transform: scale(3); */
 }
 .video .text-container {
   position: absolute;
   padding: var(--padding-text);
-  background-color: var(--trans-color);
   width: 100%;
   display: flex;
   justify-content: center;
   text-align: center;
   top: 50%;
   transform: translateY(-50%);
-  /* border-radius: 10px; */
   line-height: 2;
 }
 .video .text-container h2 {
-  color: white;
   font-weight: normal;
   margin-bottom: 30px;
 }
 .video .text-container p {
-  color: white;
   margin-bottom: 30px;
 }
 .video .text-container button {
   padding: 10px 20px;
-  color: white;
   border: none;
   outline: none;
-  background-color: var(--main-color);
   border: solid var(--trans-color) 1px;
   border-radius: 10px;
   transition: 0.3s;
 }
-.video .text-container button:hover {
-  color: var(--trans-color);
-}
-@media (max-width: 425px) {
-  .video .text-container h2 {
-    margin-bottom: 10px;
-  }
-  .video .text-container p {
-    margin-bottom: 10px;
-  }
-  .video .text-container {
-    height: 90%;
-  }
-}
-@media (max-width:768px) {
-  .video{
+@media (max-width: 768px) {
+  .video {
     display: none;
   }
 }
@@ -644,15 +558,6 @@ header nav .nav:hover + ul {
     padding: 250px 0px;
   }
 }
-.status::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 60%);
-}
 .status .text-container {
   position: absolute;
   top: 50%;
@@ -664,7 +569,6 @@ header nav .nav:hover + ul {
   justify-content: space-around;
   padding: 20px;
   text-align: center;
-  background-color: var(--trans-color);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -674,9 +578,7 @@ header nav .nav:hover + ul {
   margin: 0px 10px;
 }
 .status .text-container .text i {
-  color: white;
   margin: 10px 0px;
-  background-color: var(--main-color);
   padding: 10px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -684,19 +586,16 @@ header nav .nav:hover + ul {
   border-bottom-right-radius: 20px;
 }
 .status .text-container .text h3 {
-  color: white;
   font-weight: 800;
   font-size: 40px;
   margin: 10px 0px;
 }
 .status .text-container .text p {
-  color: white;
   margin: 20px 0px;
 }
 /* End status */
 /* Start skills */
 .skills {
-  color: white;
   margin: var(--margin-main);
 }
 .skills .container {
@@ -716,7 +615,6 @@ header nav .nav:hover + ul {
 }
 .skills .container > div .text p {
   margin: 20px 0px;
-  color: var(--third-color);
   line-height: 1.9;
 }
 
@@ -744,7 +642,6 @@ header nav .nav:hover + ul {
 }
 .skills .container .testimonaials .content .content-info p span {
   font-size: 10px;
-  color: var(--second-color);
   position: absolute;
   bottom: 10px;
   right: 0;
@@ -770,7 +667,6 @@ header nav .nav:hover + ul {
 .skills .container .our-skills .progs .prog div span {
   display: block;
   height: 100%;
-  background: var(--second-color);
   position: relative;
   transition: 0.3s;
 }
@@ -828,7 +724,6 @@ header nav .nav:hover + ul {
   width: 35px;
   height: 20px;
   background: white;
-  color: var(--second-color);
   position: absolute;
   top: -40px;
   right: -23.5px;
@@ -841,23 +736,11 @@ header nav .nav:hover + ul {
     flex-direction: column;
   }
   .skills .container .our-skills .progs .prog div span::before {
-    content: attr(data-progress);
-    width: 35px;
-    height: 20px;
-    background: white;
-    color: var(--second-color);
-    position: absolute;
     top: -39px;
-    right: -23.5px;
-    padding: 5px;
-    border-radius: 10px;
   }
   .skills .container .testimonaials .content .content-info {
-    display: flex;
     flex-direction: column;
     text-align: center;
-    align-items: center;
-    position: relative;
   }
   .skills .container .testimonaials .content .content-info img {
     margin-right: 0px;
@@ -870,7 +753,6 @@ header nav .nav:hover + ul {
   }
   .skills .container .testimonaials .content .content-info p span {
     font-size: 10px;
-    color: var(--second-color);
     position: absolute;
     bottom: 10px;
     right: 0;
@@ -886,18 +768,8 @@ header nav .nav:hover + ul {
   position: relative;
   padding: 150px;
 }
-.skills-landing::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 60%);
-}
 .skills-landing .container .text {
   position: absolute;
-  color: white;
   text-align: center;
   top: 50%;
   left: 50%;
@@ -908,14 +780,8 @@ header nav .nav:hover + ul {
   font-weight: 600;
   font-size: 20px;
 }
-.skills-landing .container .text p:last-child {
-  color: var(--second-color);
-}
 /* End skills-ladning */
 /* Start pricing */
-.pricing {
-  color: white;
-}
 .pricing .container .prcs {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
@@ -926,16 +792,16 @@ header nav .nav:hover + ul {
     margin-top: 50px;
   }
 }
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .pricing .container .prcs .prc:nth-child(2),
-  .pricing .container .prcs .prc:nth-child(4){
+  .pricing .container .prcs .prc:nth-child(4) {
     box-shadow: 2px 2px 10px 0px var(--second-color);
   }
 }
 .pricing .container .prcs ul {
   text-align: center;
 }
-.pricing .container .prcs ul li:not(first-child) {
+.pricing .container .prcs ul li:not(:first-child) {
   padding: 20px 0px;
   font-weight: normal;
   font-size: 20px;
@@ -953,7 +819,6 @@ header nav .nav:hover + ul {
   position: absolute;
   height: 2px;
   width: 50%;
-  background-color: var(--second-color);
 }
 .pricing .container .prcs ul li:first-child {
   border-top: solid var(--second-color) 1px;
@@ -993,11 +858,6 @@ header nav .nav:hover + ul {
   transition: 0.3s;
   border-radius: 10px;
   margin-top: 20px;
-  color: white;
-}
-.pricing .container .prcs ul li button:hover {
-  background-color: var(--second-color);
-  color: black;
 }
 .pricing .container .text {
   display: flex;
@@ -1010,19 +870,16 @@ header nav .nav:hover + ul {
   font-size: 20px;
 }
 .pricing .container .text button {
-  background-color: var(--second-color);
   border: solid transparent 1px;
   outline: none;
   padding: 10px;
   transition: 0.3s;
   border-radius: 10px;
   margin-top: 20px;
-  color: var(--main-color);
 }
 .pricing .container .text button:hover {
   border: solid var(--second-color) 1px;
   background-color: transparent;
-  color: white;
 }
 /* End pricing */
 /* Start subscribe */
@@ -1033,17 +890,7 @@ header nav .nav:hover + ul {
   background-size: cover;
   margin: var(--margin-main);
   position: relative;
-  color: white;
   padding: 60px 0px;
-}
-.subscribe::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 60%);
 }
 .subscribe .container {
   position: relative;
@@ -1059,41 +906,35 @@ header nav .nav:hover + ul {
   padding: 20px 20px 20px 60px;
   outline: none;
   border: solid white 1px;
-  background-color: transparent;
   width: calc(700px - 130px);
   caret-color: var(--second-color);
-  color: var(--second-color);
   border-right: none;
-}
-.subscribe .container form input::placeholder {
-  color: white;
+  background-color: transparent;
 }
 .subscribe .container form button {
   width: 130px;
   padding: 20px 20px;
-  background-color: var(--second-color);
   border: solid white 1px;
   border-left: none;
   transition: 0.3s;
-}
-.subscribe .container form button:hover {
   background-color: transparent;
-  color: white;
+}
+.subscribe .container form button:hover{
+  background-color: transparent;
 }
 .subscribe .container form i {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   font-size: 30px;
-  color: var(--second-color);
   padding-left: 20px;
 }
 .subscribe .container p {
   margin-left: 40px;
+  line-height: 1.8;
 }
 @media (max-width: 992px) {
   .subscribe .container {
-    display: flex;
     flex-direction: column;
   }
   .subscribe .container p {
@@ -1138,7 +979,6 @@ header nav .nav:hover + ul {
   background: var(--main-color);
   padding-left: 20px;
   caret-color: var(--second-color);
-  color: var(--second-color);
   padding: 10px;
   outline: none;
   transition: 0.3s;
@@ -1162,15 +1002,11 @@ header nav .nav:hover + ul {
   position: absolute;
   bottom: -60px;
   right: 0;
-  color: var(--main-color);
-  background-color: var(--second-color);
   border: solid transparent 1px;
   transition: 0.3s;
 }
 .contact-us .content form button:hover {
   border: solid var(--second-color) 1px;
-  background-color: transparent;
-  color: white;
 }
 @media (max-width: 437px) {
   .contact-us .content .text {
@@ -1181,7 +1017,6 @@ header nav .nav:hover + ul {
   }
 }
 .contact-us .content .text {
-  color: white;
   margin-left: 20px;
 }
 
@@ -1219,7 +1054,6 @@ header nav .nav:hover + ul {
   left: 0%;
   height: 1px;
   width: 100%;
-  background-color: black;
 }
 .footer .container > div {
   margin-top: 20px;
@@ -1231,10 +1065,25 @@ header nav .nav:hover + ul {
 .footer .container p:nth-child(4) {
   font-weight: 600;
 }
-.footer .container p span {
-  color: var(--second-color);
-}
 .footer .container p:nth-child(5) {
   margin: 10px 0px;
 }
 /* End footer */
+/* Start reverse */
+.reverse {
+  text-decoration: none;
+}
+.fa-arrow-circle-up {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  transition: 0.3s;
+  font-size: 60px;
+}
+@media (max-width:768px) {
+  .fa-arrow-circle-up{
+    font-size: 40px;
+  }
+}
+
+/* End revese */
